@@ -1,0 +1,18 @@
+package com.sipmle.pactice.boot.TableCreating.loginform;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+@Service
+public class StudentLoginImpl implements StudentLoginService {
+	@Autowired
+	StudentLoginRepo Repo;
+
+	@Override
+	public ResponseEntity<?> savestd(StudentLogin request) {
+		Repo.save( request);
+		return new  ResponseEntity<>("done", HttpStatus.OK);
+	}
+
+}
